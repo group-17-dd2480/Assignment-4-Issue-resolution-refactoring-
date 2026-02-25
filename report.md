@@ -1,9 +1,5 @@
 # Report for assignment 4
 
-This is a template for your report. You are free to modify it as needed.
-It is not required to use markdown for your report either, but the report
-has to be delivered in a standard, cross-platform format.
-
 ## Project
 
 Name:
@@ -22,27 +18,22 @@ If you changed the project, how did your experience differ from before?
 
 For each team member, how much time was spent in
 
-1. plenary discussions/meetings;
-
-2. discussions within parts of the group;
-
-3. reading documentation;
-
-4. configuration and setup;
-
-5. analyzing code/output;
-
-6. writing documentation;
-
-7. writing code;
-
-8. running code?
+|                                       | Olivia | Laasya | Gabriel | Daniel | Sofia |
+| ------------------------------------- | ------ | ------ | ------- | ------ | ----- |
+| plenary discussions/meetings          |        |        |         |        |       |
+| discussions within parts of the group |        |        |         |        |       |
+| reading documentation                 |        |        |         |        |       |
+| configuration and setup               |        |        |         |        |       |
+| analyzing code/output                 |        |        |         |        |       |
+| writing documentation                 |        |        |         |        |       |
+| writing code                          |        |        |         |        |       |
+| running code                          |        |        |         |        |       |
 
 For setting up tools and libraries (step 4), enumerate all dependencies
 you took care of and where you spent your time, if that time exceeds
 30 minutes.
 
-## Overview of issue(s) and work done.
+## Overview of issue(s) and work done
 
 Title:
 
