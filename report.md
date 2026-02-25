@@ -18,6 +18,11 @@ If you changed the project, how did your experience differ from before?
 
 For our groups sole Windows user, Sofia, the experience differed a lot. When cloning from GitHub on Windows there are several errors like this: `error: unable to create file jablib/src/main/java/org/jabref/logic/importer/fetcher/transformers/CollectionOfComputerScienceBibliographiesQueryTransformer.java: Filename too long` due to filenames being too long. This is due to Git on Windows being compiled with msys which has a filename limit of 260 characters for a filename (for Git the limit is 4096 characters). The solution is to add [longpaths = true](https://stackoverflow.com/a/74289583) to the Git configuration. A relatively easy fix, but there is no mention anywhere in the original repo or FAQ about this problem, which should be an issue for every Windows user who tries to clone the repository.
 
+Another thing is that JabRef has very particular requirements for [which IDE to use](https://devdocs.jabref.org/getting-into-the-code/guidelines-for-setting-up-a-local-workspace/).
+> We highly encourage using IntelliJ IDEA, as it provides the most reliable experience for this project. Other IDEs may have compatibility issues, particularly Visual Studio Code.
+> We do not recommend using VS Code, because it does not offer all important features essential for JabRef development.
+
+
 ## Effort spent
 
 For each team member, how much time was spent in
