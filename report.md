@@ -2,15 +2,17 @@
 
 ## Project
 
-Name:
+Name: JabRef Bibliography Management
 
-URL:
+URL: [github.com/JabRef/jabref](https://github.com/JabRef/jabref)
 
-One or two sentences describing it
+JabRef is an open-source, cross-platform citation and reference management tool.
+JabRef helps you to collect and organize sources, find the paper you need and discover the latest research.
 
 ## Onboarding experience
 
 Did you choose a new project or continue on the previous one?
+**We choose a new project**
 
 If you changed the project, how did your experience differ from before?
 
@@ -35,11 +37,12 @@ you took care of and where you spent your time, if that time exceeds
 
 ## Overview of issue(s) and work done
 
-Title:
+Title: Make abbreviations also working for conferences #12728
 
-URL:
+URL: [github.com/JabRef/jabref/issues/12728](https://github.com/JabRef/jabref/issues/12728)
 
-Summary in one or two sentences
+Abbreviations are listed at [github.com/JabRef/abbrv.jabref.org](https://github.com/JabRef/abbrv.jabref.org).
+The system is currently not used for conference proceedings (field booktitle)
 
 Scope (functionality and code affected).
 
