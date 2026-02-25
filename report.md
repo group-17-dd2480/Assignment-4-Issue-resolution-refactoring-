@@ -22,16 +22,21 @@ For our groups sole Windows user, Sofia, the experience differed a lot. When clo
 
 For each team member, how much time was spent in
 
-|                                       | Olivia | Laasya | Gabriel | Daniel | Sofia |
-| ------------------------------------- | ------ | ------ | ------- | ------ | ----- |
-| plenary discussions/meetings          |        |        |         |        |       |
-| discussions within parts of the group |        |        |         |        |       |
-| reading documentation                 |        |        |         |        |       |
-| configuration and setup               |        |        |         |        |       |
-| analyzing code/output                 |        |        |         |        |       |
-| writing documentation                 |        |        |         |        |       |
-| writing code                          |        |        |         |        |       |
-| running code                          |        |        |         |        |       |
+|                                         | Olivia | Laasya | Gabriel | Daniel | Sofia  |
+| --------------------------------------- | :----: | :----: | :-----: | :----: | :----: |
+| plenary discussions/meetings            |        |        |         |        |        |
+| discussions within parts of the group   |        |        |         |        |        |
+| reading documentation                   |        |        |         |        |        |
+| configuration and setup                 |        |        |         |        |        |
+| &nbsp;&nbsp;&#8594; Git clone (Windows) |        |        |         |        | 50 min |
+| &nbsp;&nbsp;&#8594; **AddDependency**   |        |        |         |        |        |
+| &nbsp;&nbsp;&#8594; **AddDependency**   |        |        |         |        |        |
+| &nbsp;&nbsp;&#8594; **AddDependency**   |        |        |         |        |        |
+| &nbsp;&nbsp;&#8594; **AddDependency**   |        |        |         |        |        |
+| analyzing code/output                   |        |        |         |        |        |
+| writing documentation                   |        |        |         |        | 20 min |
+| writing code                            |        |        |         |        |        |
+| running code                            |        |        |         |        |        |
 
 For setting up tools and libraries (step 4), enumerate all dependencies
 you took care of and where you spent your time, if that time exceeds
