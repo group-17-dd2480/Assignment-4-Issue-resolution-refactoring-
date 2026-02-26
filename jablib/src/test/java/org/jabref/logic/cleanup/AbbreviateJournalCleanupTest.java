@@ -124,6 +124,24 @@ public class AbbreviateJournalCleanupTest {
     }
 
     @Test
+    void abbreviateBookTitleField() {
+        Abbreviation abbreviation = new Abbreviation("International Conference on Business Process Management", "BPM");
+        Mockito.when(repositoryMock.get("International Conference on Business Process Management")).thenReturn(Optional.of(abbreviation));
+
+        BibEntry entry = new BibEntry().withField(StandardField.BOOKTITLE, "International Conference on Business Process Management");
+        List<FieldChange> changes = cleanupWithoutFJournal.cleanup(entry);
+        
+        List<FieldChange> expected = List.of(
+                new FieldChange(entry, StandardField.BOOKTITLE, "International Conference on Business Process Management", "BPM")
+        );
+        assertEquals(expected, changes);
+
+        BibEntry expectedEntry = new BibEntry()
+                .withField(StandardField.BOOKTITLE, "BPM");
+        assertEquals(expectedEntry, entry);
+    }
+
+    @Test
     void resolveForStringsIsCalled() {
         Abbreviation abbreviation = new Abbreviation("Journal of Foo", "J. Foo");
         Mockito.when(repositoryMock.get("Journal of Foo")).thenReturn(Optional.of(abbreviation));
