@@ -95,23 +95,42 @@ After shortening:
 There will be a CSV file:
 International Conference on Business Process Management,BPM
 
+**Test**
+Test by using the input above and asserting that the output is correct.
+
 **[req 2](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)**
 - conferences use booktitle instead of journaltitle
 - they have different abbreviations and reside in different fields
 
+**Test**
+Assert `booktitle` abbreviations are handled by the conference abbreviation repo while `journaltitle` uses the journal repo.
+
 **[req 3](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)**
 - a csv has to be filled with example conferences
 
+**Test**
+More of a chore, not really testable in classic sense.
+
 **[req 4](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)**
 - create a ConferenceAbbreviationRepository based on JournalAbbreviationRepository
-- rename journal-lists.mv to abbreviations.mv in both grooby and java code
+- rename journal-lists.mv to abbreviations.mv in both groovy and java code
+
+**Test**
+Loader can assert that the loader reads the expected MV resource name.
 
 **[req 5](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)**
 - write tests based on custom abbreviations
 
+**Test**
+Verifiable by running the tests and making sure they fail before implementation and work after implementation.
+
 **[req 6](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)**
 - the csv file should be imported into JabRef similar to journal abbreviations
 - refactor JournalAbbreviationConverter.groovy to be AbbreviationConverter.groovy
+
+**Test**
+Test idea: load a tiny conference CSV and check abbreviations resolve, converter rename is just review.
+
 
 **[req 7](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)**
 - the UI should offer abbreviating
@@ -119,16 +138,28 @@ International Conference on Business Process Management,BPM
 - rename "Unabbreviate journal names" to "Expand journals and book titles"
 - Implementation: Run both abbreviators (instead of checking type)
 
+**Test**
+Test: check the cleanup UI strings changed and a cleanup run updates both journal and booktitle in one go.
+
 **[req 8](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)**
 - JournalAbbreviationPreferences and ConferenceAbbreviationPreferences have a list of abbreviations in common, List<Abbreviations>, since Abbreviation object is the same for conference and journal.
 - Introduce AbbreviationPreferences and new ConferenceAbbreviationPreferences (inheriting from AbbreviationPreferences). 
 - The JournalAbbreviationPreferences need also inherit from AbbreviationPreferences.
 
+**Test**
+Test (light): create both prefs and confirm they accept the same list type, even if it is mostly design.
+
 **[req 9](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)**
 - externalLists should be in AbbreviationPreferences, because both conference abbreviation and the journal abbreviations make use of the list.
 
+**Test**
+Test: set `externalLists` in base prefs and see both journal and conference loaders pick them up.
+
 **[req 10](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)**
 - useFjournalField is very specific to journals, thus it has to be in JournalAbbreviationPreferences
+
+**Test**
+Not really testable, just verify in review that `useFJournalField` stays in journal prefs.
 
 ```mermaid
 classDiagram
@@ -145,14 +176,23 @@ classDiagram
 - rename externalJournalLists to externalLists (in JournalAbbreviationPreferences) and move up the class hierarchy to AbbreviationPreferences
 - rename the respective setter, getter and constructor paramtere - and move up the class hierarchy to AbbreviationPreferences
 
+**Test**
+Not unit-testable, just make sure rename compiles and base prefs expose `externalLists`.
+
 **[req 12](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)**
 - JournalAbbreviationRepository has no journal specifics
 - rename JournalAbbreviationRepository to AbbreviationRepository
+
+**Test**
+Not unit-testable, class rename is checked by compile and review.
 
 **[req 13](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)**
 - JournalAbbreviationLoader has some journal specifics
 - The journal specifics are journal-list.mv and /journals/journal-list.mv
 - Hide these internals in a class hierarchy
+
+**Test**
+Test: conference loader should read the conference MV resource and journal loader should read the journal MV.
 
 ```mermaid
 classDiagram
@@ -174,8 +214,14 @@ constructors:
 - public JournalAbbreviationLoader(super("journal-list.mv"))
 - public ConferenceAbbreviationLoader(super("conference-list.mv"))
 
+**Test**
+Constructor signatures are structural, so compilation is the check.
+
 **[req 15](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749399)**
 - heuristics
+
+**Test**
+Can't test heuristics until the rule is written down.
 
 
 Optional (point 3): trace tests to requirements.
