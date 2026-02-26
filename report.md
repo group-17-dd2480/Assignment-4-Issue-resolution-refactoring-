@@ -62,7 +62,7 @@ Scope (functionality and code affected).
 
 The following requirements are based on the issue description. Note that tests are implemented at first to be used as a validation tool of all other requirements, as required by the assignment instructions `Part 2: Issue Resolution, 2-3`. The order of all other requirements are based on the order they are mentioned in the [issue thread](https://github.com/JabRef/jabref/issues/12728).
 
-**[req 1](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)**
+**[req 1](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Done
 
 Before shortening:
 ```bibtex
@@ -120,7 +120,7 @@ More of a chore, not really testable in classic sense.
 **Test**
 Loader can assert that the loader reads the expected MV resource name.
 
-**[req 5](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)**
+**[req 5](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Done
 - write tests based on custom abbreviations
 
 **Test**
@@ -135,7 +135,7 @@ Verifiable by running the tests and making sure they fail before implementation 
 Test idea: load a tiny conference CSV and check abbreviations resolve, converter rename is just review.
 
 
-**[req 7](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)**
+**[req 7](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Partially done
 - the UI should offer abbreviating
 - rename "Abbreviate journal names" to "Abbreviate journals and book titles"
 - rename "Unabbreviate journal names" to "Expand journals and book titles"
