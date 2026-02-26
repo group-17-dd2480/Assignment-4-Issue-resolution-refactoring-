@@ -113,6 +113,26 @@ public class UnabbreviateJournalCleanupTest {
     }
 
     @Test
+    void unabbreviateBookTitleSuccessful() {
+        Abbreviation abbreviation = new Abbreviation("International Conference on Business Process Management", "BPM");
+        Mockito.when(repositoryMock.isKnownName("BPM")).thenReturn(true);
+        Mockito.when(repositoryMock.isAbbreviatedName("BPM")).thenReturn(true);
+        Mockito.when(repositoryMock.get("BPM")).thenReturn(Optional.of(abbreviation));
+
+        BibEntry entry = new BibEntry().withField(StandardField.BOOKTITLE, "BPM");
+        List<FieldChange> changes = cleanup.cleanup(entry);
+
+        List<FieldChange> expected = List.of(
+                new FieldChange(entry, StandardField.BOOKTITLE, "BPM", "International Conference on Business Process Management")
+        );
+        assertEquals(expected, changes);
+
+        BibEntry expectedEntry = new BibEntry()
+                .withField(StandardField.BOOKTITLE, "International Conference on Business Process Management");
+        assertEquals(expectedEntry, entry);
+    }
+
+    @Test
     void unabbreviateBothJournalTitleAndJournalSuccessful() {
         Abbreviation abbreviationJournal = new Abbreviation("Journal of Foo", "J. Foo");
         Mockito.when(repositoryMock.isKnownName("J. Foo")).thenReturn(true);
