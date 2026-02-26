@@ -42,6 +42,7 @@ For each team member, how much time was spent in
 | writing documentation                         |        |        |         |        | 20 min |
 | writing code                                  |        |        |         |        |        |
 | running code                                  |        |        |         |        |        |
+| Incident                                      |        |        |         |        |        |
 
 For setting up tools and libraries (step 4), enumerate all dependencies
 you took care of and where you spent your time, if that time exceeds
@@ -107,14 +108,15 @@ Test by using the input above and asserting that the output is correct.
 **Test**
 Assert `booktitle` abbreviations are handled by the conference abbreviation repo while `journaltitle` uses the journal repo.
 
-**[req 3](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)**
+**[req 3](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Done
 - a csv has to be filled with example conferences
 
 **Test**
 More of a chore, not really testable in classic sense.
 
-**[req 4](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)**
-- create a ConferenceAbbreviationRepository based on JournalAbbreviationRepository
+**[req 4](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Partially done
+- create a ConferenceAbbreviationRepository based on JournalAbbreviationRepository - Done
+- Added ConferenceAbbreviationRepositoryTest - Done
 - rename journal-lists.mv to abbreviations.mv in both groovy and java code
 
 **Test**
