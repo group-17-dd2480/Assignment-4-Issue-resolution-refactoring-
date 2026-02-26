@@ -38,6 +38,16 @@ class AbbreviationCheckerTest {
     }
 
     @Test
+    void checkEntryDoesNotComplainAboutAbbreviatedBooktitleWhenAbbreviationIsAllowed() {
+        abbreviationRepository.addCustomAbbreviation(
+                new Abbreviation("International Conference on Business Process Management", "BPM")
+        );
+        entry.setField(StandardField.BOOKTITLE, "BPM");
+    
+        assertEquals(List.of(), checker.check(entry));
+    }
+
+    @Test
     void checkEntryDoesNotComplainAboutJournalNameThatHasSameAbbreviation() {
         entry.setField(StandardField.BOOKTITLE, "Journal");
         abbreviationRepository.addCustomAbbreviation(new Abbreviation("Journal", "Journal"));
