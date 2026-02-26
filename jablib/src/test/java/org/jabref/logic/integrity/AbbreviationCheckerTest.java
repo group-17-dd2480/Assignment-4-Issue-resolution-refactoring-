@@ -32,8 +32,8 @@ class AbbreviationCheckerTest {
     }
 
     @Test
-    void checkEntryComplainsAboutAbbreviatedJournalName() {
-        entry.setField(StandardField.BOOKTITLE, "T. J.");
+    void checkEntryComplainsAboutAbbreviatedBookName() {
+        entry.setField(StandardField.MAINTITLE, "T. J.");
         assertNotEquals(List.of(), checker.check(entry));
     }
 

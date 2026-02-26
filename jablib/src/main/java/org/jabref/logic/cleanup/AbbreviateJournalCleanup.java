@@ -37,6 +37,7 @@ public class AbbreviateJournalCleanup implements CleanupJob {
         // Journal is BibTeX, JournalTitle is BibLaTeX. See also org/jabref/model/entry/EntryConverter.java:20
         allChanges.addAll(abbreviateField(entry, StandardField.JOURNAL));
         allChanges.addAll(abbreviateField(entry, StandardField.JOURNALTITLE));
+        allChanges.addAll(abbreviateField(entry, StandardField.BOOKTITLE));
         return allChanges;
     }
 
