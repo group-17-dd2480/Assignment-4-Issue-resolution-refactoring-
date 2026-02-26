@@ -20,6 +20,7 @@ import org.jabref.logic.journals.JournalAbbreviationRepository;
 import org.jabref.logic.util.TaskExecutor;
 import org.jabref.model.entry.BibEntry;
 import org.jabref.model.entry.field.Field;
+import org.jabref.model.entry.field.StandardField;
 
 import com.airhacks.afterburner.views.ViewLoader;
 import jakarta.inject.Inject;
@@ -55,6 +56,11 @@ public class JournalEditor extends HBox implements FieldEditorFX {
                 taskExecutor,
                 dialogService,
                 undoManager);
+
+        if (field == StandardField.BOOKTITLE) {
+            journalInfoButton.setManaged(false);
+            journalInfoButton.setVisible(false);
+        }
 
         establishBinding(textField, viewModel.textProperty(), keyBindingRepository, undoAction, redoAction);
         textField.initContextMenu(new DefaultMenu(textField), keyBindingRepository);

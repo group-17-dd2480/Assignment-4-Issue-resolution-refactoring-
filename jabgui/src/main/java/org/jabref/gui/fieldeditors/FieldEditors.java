@@ -70,7 +70,7 @@ public class FieldEditors {
             return new DateEditor(field, DateTimeFormatter.ofPattern("[uuuu][-MM][-dd]"), suggestionProvider, fieldCheckers, undoAction, redoAction);
         } else if (fieldProperties.contains(FieldProperty.EXTERNAL)) {
             return new UrlEditor(field, suggestionProvider, fieldCheckers, undoAction, redoAction);
-        } else if (fieldProperties.contains(FieldProperty.JOURNAL_NAME)) {
+        } else if (fieldProperties.contains(FieldProperty.JOURNAL_NAME) || field == StandardField.BOOKTITLE) {
             return new JournalEditor(field, suggestionProvider, fieldCheckers, undoAction, redoAction);
         } else if (fieldProperties.contains(FieldProperty.IDENTIFIER) && field != StandardField.PMID || field == StandardField.ISBN) {
             // Identifier editor does not support PMID, therefore excluded at the condition above
