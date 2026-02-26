@@ -60,6 +60,124 @@ Scope (functionality and code affected).
 
 ## Requirements for the new feature or requirements affected by functionality being refactored
 
+The following requirements are based on the issue description. Note that tests are implemented at first to be used as a validation tool of all other requirements, as required by the assignment instructions `Part 2: Issue Resolution, 2-3`. The order of all other requirements are based on the order they are mentioned in the [issue thread](https://github.com/JabRef/jabref/issues/12728).
+
+**[req 1](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)**
+
+Before shortening:
+```bibtex
+@inproceedings{DBLP:conf/bpm/Rinderle-MaM21,
+  author    = {Stefanie Rinderle{-}Ma and
+               Juergen Mangler},
+  title     = {Process Automation and Process Mining in Manufacturing},
+  booktitle = {International Conference on Business Process Management},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {12875},
+  pages     = {3--14},
+  publisher = {Springer},
+  year      = {2021}
+}
+```
+After shortening:
+```bibtex
+@inproceedings{DBLP:conf/bpm/Rinderle-MaM21,
+  author    = {Stefanie Rinderle{-}Ma and
+               Juergen Mangler},
+  title     = {Process Automation and Process Mining in Manufacturing},
+  booktitle = {BPM},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {12875},
+  pages     = {3--14},
+  publisher = {Springer},
+  year      = {2021}
+}
+```
+There will be a CSV file:
+International Conference on Business Process Management,BPM
+
+**[req 2](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)**
+- conferences use booktitle instead of journaltitle
+- they have different abbreviations and reside in different fields
+
+**[req 3](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)**
+- a csv has to be filled with example conferences
+
+**[req 4](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)**
+- create a ConferenceAbbreviationRepository based on JournalAbbreviationRepository
+- rename journal-lists.mv to abbreviations.mv in both grooby and java code
+
+**[req 5](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)**
+- write tests based on custom abbreviations
+
+**[req 6](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)**
+- the csv file should be imported into JabRef similar to journal abbreviations
+- refactor JournalAbbreviationConverter.groovy to be AbbreviationConverter.groovy
+
+**[req 7](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)**
+- the UI should offer abbreviating
+- rename "Abbreviate journal names" to "Abbreviate journals and book titles"
+- rename "Unabbreviate journal names" to "Expand journals and book titles"
+- Implementation: Run both abbreviators (instead of checking type)
+
+**[req 8](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)**
+- JournalAbbreviationPreferences and ConferenceAbbreviationPreferences have a list of abbreviations in common, List<Abbreviations>, since Abbreviation object is the same for conference and journal.
+- Introduce AbbreviationPreferences and new ConferenceAbbreviationPreferences (inheriting from AbbreviationPreferences). 
+- The JournalAbbreviationPreferences need also inherit from AbbreviationPreferences.
+
+**[req 9](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)**
+- externalLists should be in AbbreviationPreferences, because both conference abbreviation and the journal abbreviations make use of the list.
+
+**[req 10](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)**
+- useFjournalField is very specific to journals, thus it has to be in JournalAbbreviationPreferences
+
+```mermaid
+classDiagram
+    AbbreviationPreferences <|-- JournalAbbreviationPreferences
+    AbbreviationPreferences <|-- ConferenceAbbreviationPreferences
+    <<Abstract>> AbbreviationPreferences
+
+    AbbreviationPreferences : -externalLists
+    JournalAbbreviationPreferences : -useFJournalField
+
+```
+
+**[req 11](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)**
+- rename externalJournalLists to externalLists (in JournalAbbreviationPreferences) and move up the class hierarchy to AbbreviationPreferences
+- rename the respective setter, getter and constructor paramtere - and move up the class hierarchy to AbbreviationPreferences
+
+**[req 12](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)**
+- JournalAbbreviationRepository has no journal specifics
+- rename JournalAbbreviationRepository to AbbreviationRepository
+
+**[req 13](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)**
+- JournalAbbreviationLoader has some journal specifics
+- The journal specifics are journal-list.mv and /journals/journal-list.mv
+- Hide these internals in a class hierarchy
+
+```mermaid
+classDiagram
+    AbbreviationLoader<|-- JournalAbbreviationLoader
+    AbbreviationLoader<|-- ConferenceAbbreviationLoader
+    <<Abstract>> AbbreviationLoader
+
+    AbbreviationLoader: +readListFromFile
+	AbbreviationLoader: AbbreviationLoader(String mvName)
+	AbbreviationLoader: +AbbreviationRepository loadloadRepository(AbbreviationPreferences)
+    AbbreviationLoader: -mvName
+```
+- Use AbbreviationPreferences works since fjournal is not needed here.
+- Using the variable mvName, the variable tempJournaList and the path to JournalAbbreviationRepository.class.getResourceAsStream("/journals/journal-list.mv") can be dynaically made. The tempDir can be named "jabref-abbreviation-loading" (instead of jabref-journal)
+
+**[req 14](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)**
+
+constructors:
+- public JournalAbbreviationLoader(super("journal-list.mv"))
+- public ConferenceAbbreviationLoader(super("conference-list.mv"))
+
+**[req 15](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749399)**
+- heuristics
+
+
 Optional (point 3): trace tests to requirements.
 
 ## Code changes
