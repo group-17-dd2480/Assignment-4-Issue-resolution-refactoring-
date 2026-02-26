@@ -31,6 +31,7 @@ public class UnabbreviateJournalCleanup implements CleanupJob {
 
         allChanges.addAll(unabbreviate(entry, StandardField.JOURNAL));
         allChanges.addAll(unabbreviate(entry, StandardField.JOURNALTITLE));
+        allChanges.addAll(unabbreviate(entry, StandardField.BOOKTITLE));
 
         return allChanges;
     }
