@@ -97,6 +97,8 @@ International Conference on Business Process Management,BPM
 
 **Test**
 Test by using the input above and asserting that the output is correct.
+- `abbreviateBookTitleField()` in `AbbreviateBookTitleField()`
+- `unabbreviateBookTitleSuccessful()` in `UnabbreviateJournalCleanupTest.java`
 
 **[req 2](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)**
 - conferences use booktitle instead of journaltitle
@@ -123,6 +125,7 @@ Loader can assert that the loader reads the expected MV resource name.
 
 **Test**
 Verifiable by running the tests and making sure they fail before implementation and work after implementation.
+- covered in `abbreviateBookTitleField()`, `unabbreviateBookTitleSuccessful()`, `abbreviateJournalTitleAndBookTitleInOneRun()`, `checkEntryDoesNotComplainAboutAbbreviatedBooktitleWhenAbbreviationIsAllowed()`.
 
 **[req 6](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)**
 - the csv file should be imported into JabRef similar to journal abbreviations
@@ -140,6 +143,8 @@ Test idea: load a tiny conference CSV and check abbreviations resolve, converter
 
 **Test**
 Test: check the cleanup UI strings changed and a cleanup run updates both journal and booktitle in one go.
+- `abbreviateJournalTitleAndBookTitleInOneRun()` in `AbbreviateJournalCleanupTest.java`.
+- `checkEntryDoesNotComplainAboutAbbreviatedBooktitleWhenAbbreviationIsAllowed()` in `AbbreviateCheckerTest.java`.
 
 **[req 8](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)**
 - JournalAbbreviationPreferences and ConferenceAbbreviationPreferences have a list of abbreviations in common, List<Abbreviations>, since Abbreviation object is the same for conference and journal.
