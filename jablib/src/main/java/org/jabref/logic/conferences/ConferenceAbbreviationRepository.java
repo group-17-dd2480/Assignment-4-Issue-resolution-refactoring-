@@ -52,6 +52,10 @@ public class ConferenceAbbreviationRepository {
         return new ConferenceAbbreviationRepository(stream);
     }
 
+    /// Creates an empty repository.
+    public ConferenceAbbreviationRepository() {
+    }
+
     /**
      Constructor used to load abbreviation data from a CSV InputStream.
      */
