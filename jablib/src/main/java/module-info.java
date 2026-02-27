@@ -15,6 +15,7 @@ open module org.jabref.jablib {
     exports org.jabref.logic.citationkeypattern;
     exports org.jabref.logic.exporter;
     exports org.jabref.logic.importer.fileformat;
+    exports org.jabref.logic.conferences;
     exports org.jabref.logic.journals;
     exports org.jabref.logic.l10n;
     exports org.jabref.logic.net;

@@ -1,5 +1,6 @@
 package org.jabref.gui;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ExecutorService;
@@ -41,6 +42,7 @@ import org.jabref.logic.citation.SearchCitationsRelationsService;
 import org.jabref.logic.git.util.GitHandlerRegistry;
 import org.jabref.logic.journals.JournalAbbreviationLoader;
 import org.jabref.logic.journals.JournalAbbreviationRepository;
+import org.jabref.logic.conferences.ConferenceAbbreviationRepository;
 import org.jabref.logic.l10n.Localization;
 import org.jabref.logic.net.ProxyRegisterer;
 import org.jabref.logic.os.OS;
@@ -86,6 +88,7 @@ public class JabRefGUI extends Application {
     private static JabRefFrame mainFrame;
     private static GitHandlerRegistry gitHandlerRegistry;
     private static JournalAbbreviationRepository journalAbbreviationRepository;
+    private static ConferenceAbbreviationRepository conferenceAbbreviationRepository;
 
     private static RemoteListenerServerManager remoteListenerServerManager;
     private static HttpServerManager httpServerManager;
@@ -173,7 +176,14 @@ public class JabRefGUI extends Application {
         BibEntryTypesManager entryTypesManager = preferences.getCustomEntryTypesRepository();
         journalAbbreviationRepository = JournalAbbreviationLoader.loadRepository(preferences.getJournalAbbreviationPreferences());
         Injector.setModelOrService(BibEntryTypesManager.class, entryTypesManager);
+        try {
+            conferenceAbbreviationRepository = ConferenceAbbreviationRepository.loadFromClasspath();
+        } catch (IOException e) {
+            LOGGER.error("Error while loading conference abbreviation repository", e);
+            conferenceAbbreviationRepository = new ConferenceAbbreviationRepository();
+        }
         Injector.setModelOrService(JournalAbbreviationRepository.class, journalAbbreviationRepository);
+        Injector.setModelOrService(ConferenceAbbreviationRepository.class, conferenceAbbreviationRepository);
         Injector.setModelOrService(ProtectedTermsLoader.class, new ProtectedTermsLoader(preferences.getProtectedTermsPreferences()));
 
         IndexManager.clearOldSearchIndices();
