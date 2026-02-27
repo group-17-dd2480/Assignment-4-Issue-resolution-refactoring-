@@ -101,7 +101,7 @@ Test by using the input above and asserting that the output is correct.
 - `abbreviateBookTitleField()` in `AbbreviateBookTitleField()`
 - `unabbreviateBookTitleSuccessful()` in `UnabbreviateJournalCleanupTest.java`
 
-**[req 2](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)**
+**[req 2](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Incomplete
 - conferences use booktitle instead of journaltitle
 - they have different abbreviations and reside in different fields
 
@@ -129,7 +129,7 @@ Loader can assert that the loader reads the expected MV resource name.
 Verifiable by running the tests and making sure they fail before implementation and work after implementation.
 - covered in `abbreviateBookTitleField()`, `unabbreviateBookTitleSuccessful()`, `abbreviateJournalTitleAndBookTitleInOneRun()`, `checkEntryDoesNotComplainAboutAbbreviatedBooktitleWhenAbbreviationIsAllowed()`.
 
-**[req 6](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)**
+**[req 6](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Incomplete
 - the csv file should be imported into JabRef similar to journal abbreviations
 - refactor JournalAbbreviationConverter.groovy to be AbbreviationConverter.groovy
 
@@ -148,7 +148,7 @@ Test: check the cleanup UI strings changed and a cleanup run updates both journa
 - `abbreviateJournalTitleAndBookTitleInOneRun()` in `AbbreviateJournalCleanupTest.java`.
 - `checkEntryDoesNotComplainAboutAbbreviatedBooktitleWhenAbbreviationIsAllowed()` in `AbbreviateCheckerTest.java`.
 
-**[req 8](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)**
+**[req 8](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Incomplete
 - JournalAbbreviationPreferences and ConferenceAbbreviationPreferences have a list of abbreviations in common, List<Abbreviations>, since Abbreviation object is the same for conference and journal.
 - Introduce AbbreviationPreferences and new ConferenceAbbreviationPreferences (inheriting from AbbreviationPreferences). 
 - The JournalAbbreviationPreferences need also inherit from AbbreviationPreferences.
@@ -156,13 +156,13 @@ Test: check the cleanup UI strings changed and a cleanup run updates both journa
 **Test**
 Test (light): create both prefs and confirm they accept the same list type, even if it is mostly design.
 
-**[req 9](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)**
+**[req 9](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Incomplete
 - externalLists should be in AbbreviationPreferences, because both conference abbreviation and the journal abbreviations make use of the list.
 
 **Test**
 Test: set `externalLists` in base prefs and see both journal and conference loaders pick them up.
 
-**[req 10](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)**
+**[req 10](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Incomplete
 - useFjournalField is very specific to journals, thus it has to be in JournalAbbreviationPreferences
 
 **Test**
@@ -179,21 +179,21 @@ classDiagram
 
 ```
 
-**[req 11](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)**
+**[req 11](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Incomplete
 - rename externalJournalLists to externalLists (in JournalAbbreviationPreferences) and move up the class hierarchy to AbbreviationPreferences
 - rename the respective setter, getter and constructor paramtere - and move up the class hierarchy to AbbreviationPreferences
 
 **Test**
 Not unit-testable, just make sure rename compiles and base prefs expose `externalLists`.
 
-**[req 12](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)**
+**[req 12](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Incomplete
 - JournalAbbreviationRepository has no journal specifics
 - rename JournalAbbreviationRepository to AbbreviationRepository
 
 **Test**
 Not unit-testable, class rename is checked by compile and review.
 
-**[req 13](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)**
+**[req 13](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Incomplete
 - JournalAbbreviationLoader has some journal specifics
 - The journal specifics are journal-list.mv and /journals/journal-list.mv
 - Hide these internals in a class hierarchy
@@ -215,7 +215,7 @@ classDiagram
 - Use AbbreviationPreferences works since fjournal is not needed here.
 - Using the variable mvName, the variable tempJournaList and the path to JournalAbbreviationRepository.class.getResourceAsStream("/journals/journal-list.mv") can be dynaically made. The tempDir can be named "jabref-abbreviation-loading" (instead of jabref-journal)
 
-**[req 14](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)**
+**[req 14](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Incomplete
 
 constructors:
 - public JournalAbbreviationLoader(super("journal-list.mv"))
@@ -224,7 +224,7 @@ constructors:
 **Test**
 Constructor signatures are structural, so compilation is the check.
 
-**[req 15](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749399)**
+**[req 15](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749399)** - Incomplete
 - heuristics
 
 **Test**
