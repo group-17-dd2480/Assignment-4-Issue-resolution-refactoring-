@@ -101,7 +101,7 @@ Test by using the input above and asserting that the output is correct.
 - `abbreviateBookTitleField()` in `AbbreviateBookTitleField()`
 - `unabbreviateBookTitleSuccessful()` in `UnabbreviateJournalCleanupTest.java`
 
-**[req 2](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Incomplete
+**[req 2](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Done
 - conferences use booktitle instead of journaltitle
 - they have different abbreviations and reside in different fields
 
@@ -114,7 +114,7 @@ Assert `booktitle` abbreviations are handled by the conference abbreviation repo
 **Test**
 More of a chore, not really testable in classic sense.
 
-**[req 4](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Partially done
+**[req 4](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Partially Implemented
 - create a ConferenceAbbreviationRepository based on JournalAbbreviationRepository - Done
 - Added ConferenceAbbreviationRepositoryTest - Done
 - rename journal-lists.mv to abbreviations.mv in both groovy and java code
@@ -129,7 +129,7 @@ Loader can assert that the loader reads the expected MV resource name.
 Verifiable by running the tests and making sure they fail before implementation and work after implementation.
 - covered in `abbreviateBookTitleField()`, `unabbreviateBookTitleSuccessful()`, `abbreviateJournalTitleAndBookTitleInOneRun()`, `checkEntryDoesNotComplainAboutAbbreviatedBooktitleWhenAbbreviationIsAllowed()`.
 
-**[req 6](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Incomplete
+**[req 6](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Partially Implemented
 - the csv file should be imported into JabRef similar to journal abbreviations
 - refactor JournalAbbreviationConverter.groovy to be AbbreviationConverter.groovy
 
@@ -137,7 +137,7 @@ Verifiable by running the tests and making sure they fail before implementation 
 Test idea: load a tiny conference CSV and check abbreviations resolve, converter rename is just review.
 
 
-**[req 7](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Partially done
+**[req 7](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Partially Implemented
 - the UI should offer abbreviating
 - rename "Abbreviate journal names" to "Abbreviate journals and book titles"
 - rename "Unabbreviate journal names" to "Expand journals and book titles"
