@@ -39,10 +39,10 @@ import org.jabref.languageserver.controller.LanguageServerController;
 import org.jabref.logic.UiCommand;
 import org.jabref.logic.ai.AiService;
 import org.jabref.logic.citation.SearchCitationsRelationsService;
+import org.jabref.logic.conferences.ConferenceAbbreviationRepository;
 import org.jabref.logic.git.util.GitHandlerRegistry;
 import org.jabref.logic.journals.JournalAbbreviationLoader;
 import org.jabref.logic.journals.JournalAbbreviationRepository;
-import org.jabref.logic.conferences.ConferenceAbbreviationRepository;
 import org.jabref.logic.l10n.Localization;
 import org.jabref.logic.net.ProxyRegisterer;
 import org.jabref.logic.os.OS;
@@ -122,7 +122,8 @@ public class JabRefGUI extends Application {
                     clipBoardManager,
                     taskExecutor,
                     gitHandlerRegistry,
-                    journalAbbreviationRepository);
+                    journalAbbreviationRepository,
+                    conferenceAbbreviationRepository);
 
             openWindow();
 
