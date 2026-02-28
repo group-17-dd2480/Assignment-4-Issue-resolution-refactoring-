@@ -137,7 +137,7 @@ Verifiable by running the tests and making sure they fail before implementation 
 Test idea: load a tiny conference CSV and check abbreviations resolve, converter rename is just review.
 
 
-**[req 7](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Partially Implemented
+**[req 7](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Done
 - the UI should offer abbreviating
 - rename "Abbreviate journal names" to "Abbreviate journals and book titles"
 - rename "Unabbreviate journal names" to "Expand journals and book titles"
