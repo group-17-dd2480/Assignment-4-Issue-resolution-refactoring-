@@ -34,6 +34,17 @@ public class ConferenceAbbreviationRepository {
     private final Map<String, String> fullToAbbrev = new HashMap<>();
     private final Map<String, String> abbrevToFull = new HashMap<>();
 
+    /// Creates an empty repository.
+    public ConferenceAbbreviationRepository() {
+    }
+
+    /**
+     * Constructor used to load abbreviation data from a CSV InputStream.
+     */
+    public ConferenceAbbreviationRepository(InputStream csvStream) throws IOException {
+        load(csvStream);
+    }
+
     /**
      * Factory method to load the repository from the default classpath resource.
      * This method:
@@ -52,17 +63,6 @@ public class ConferenceAbbreviationRepository {
         return new ConferenceAbbreviationRepository(stream);
     }
 
-    /// Creates an empty repository.
-    public ConferenceAbbreviationRepository() {
-    }
-
-    /**
-     Constructor used to load abbreviation data from a CSV InputStream.
-     */
-    public ConferenceAbbreviationRepository(InputStream csvStream) throws IOException {
-        load(csvStream);
-    }
-
     /**
      * Internal method responsible for parsing the CSV file.
      * Steps:
@@ -72,36 +72,35 @@ public class ConferenceAbbreviationRepository {
      * 4. Store mappings in both directions.
      */
     private void load(InputStream csvStream) throws IOException {
-    try (BufferedReader reader = new BufferedReader(
-            new InputStreamReader(csvStream, StandardCharsets.UTF_8))) {
+        try (BufferedReader reader = new BufferedReader(
+                new InputStreamReader(csvStream, StandardCharsets.UTF_8))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String trimmed = line.trim();
 
-        String line;
-        while ((line = reader.readLine()) != null) {
-            String trimmed = line.trim();
+                if (trimmed.isEmpty()) {
+                    continue;
+                }
+                if (trimmed.startsWith("#")) {
+                    continue;
+                }
 
-            if (trimmed.isEmpty()) {
-                continue;
+                String[] parts = trimmed.split(",", 2);
+                if (parts.length != 2) {
+                    continue;
+                }
+
+                String fullName = parts[0].trim();
+                String abbreviation = parts[1].trim();
+                if (fullName.isEmpty() || abbreviation.isEmpty()) {
+                    continue;
+                }
+
+                fullToAbbrev.put(fullName, abbreviation);
+                abbrevToFull.put(abbreviation, fullName);
             }
-            if (trimmed.startsWith("#")) {
-                continue;
-            }
-
-            String[] parts = trimmed.split(",", 2);
-            if (parts.length != 2) {
-                continue;
-            }
-
-            String fullName = parts[0].trim();
-            String abbreviation = parts[1].trim();
-            if (fullName.isEmpty() || abbreviation.isEmpty()) {
-                continue;
-            }
-
-            fullToAbbrev.put(fullName, abbreviation);
-            abbrevToFull.put(abbreviation, fullName);
         }
     }
-}
 
     /**
      * Returns the abbreviation for a given full conference name.
@@ -125,14 +124,13 @@ public class ConferenceAbbreviationRepository {
 
     /**
      * Toggle behavior similar to JournalAbbreviationRepository.
-     
+     *
      * If input is:
-     *   - a full conference name → return abbreviation
-     *   - an abbreviation → return full conference name
-     *   - unknown → return empty Optional
+     * - a full conference name -> return abbreviation
+     * - an abbreviation -> return full conference name
+     * - unknown -> return empty Optional
      */
     public Optional<String> getNextAbbreviation(String input) {
-
         // Case 1: input is a full conference name
         String asAbbrev = fullToAbbrev.get(input);
         if (asAbbrev != null) {
@@ -148,5 +146,4 @@ public class ConferenceAbbreviationRepository {
         // Case 3: no known mapping
         return Optional.empty();
     }
-    
 }
