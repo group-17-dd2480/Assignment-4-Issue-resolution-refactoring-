@@ -15,6 +15,7 @@ import org.jabref.gui.keyboard.KeyBindingRepository;
 import org.jabref.gui.preferences.GuiPreferences;
 import org.jabref.gui.undo.RedoAction;
 import org.jabref.gui.undo.UndoAction;
+import org.jabref.logic.conferences.ConferenceAbbreviationRepository;
 import org.jabref.logic.integrity.FieldCheckers;
 import org.jabref.logic.journals.JournalAbbreviationRepository;
 import org.jabref.logic.util.TaskExecutor;
@@ -36,6 +37,7 @@ public class JournalEditor extends HBox implements FieldEditorFX {
     @Inject private KeyBindingRepository keyBindingRepository;
     @Inject private TaskExecutor taskExecutor;
     @Inject private JournalAbbreviationRepository abbreviationRepository;
+    @Inject private ConferenceAbbreviationRepository conferenceAbbreviationRepository;
     @Inject private UndoManager undoManager;
 
     public JournalEditor(Field field,
@@ -52,6 +54,7 @@ public class JournalEditor extends HBox implements FieldEditorFX {
                 field,
                 suggestionProvider,
                 abbreviationRepository,
+                conferenceAbbreviationRepository,
                 fieldCheckers,
                 taskExecutor,
                 dialogService,
