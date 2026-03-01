@@ -280,6 +280,7 @@ refactoring).
 
 ## UML class diagram and its description
 
+![UML class diagram](report-UML.png)
 
 ## Overall experience
 
