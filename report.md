@@ -57,7 +57,15 @@ URL: [github.com/JabRef/jabref/issues/12728](https://github.com/JabRef/jabref/is
 Abbreviations are listed at [github.com/JabRef/abbrv.jabref.org](https://github.com/JabRef/abbrv.jabref.org).
 The system is currently not used for conference proceedings (field booktitle)
 
-Scope (functionality and code affected).
+The scope for this issue is these folders:
+
+```bash
+jabgui/src/main/java/org/jabref/gui/
+jablib/src/main/java/org/jabref/logic/
+jablib/src/main/resources/
+```
+
+The functionality is similar to existing functions, notably `JournalAbbreviation`, just implemented for a different field in the user interface and for different abbreviations.
 
 ## Requirements for the new feature or requirements affected by functionality being refactored
 
