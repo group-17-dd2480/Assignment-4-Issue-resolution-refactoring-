@@ -26,22 +26,21 @@ Another thing is that JabRef has very particular requirements for [which IDE to 
 
 For each team member, how much time was spent in
 
-|                                               | Olivia | Laasya | Gabriel | Daniel | Sofia  |
-| --------------------------------------------- | :----: | :----: | :-----: |:------:| :----: |
-| plenary discussions/meetings                  |        |        | 2 h     |  2 h   |        |
-| discussions within parts of the group         |        |        | 0.5 h   |  1 h   |        |
-| reading documentation                         |        |        | 7 h     |  2 h   |        |
-| configuration and setup                       |        |        | 1 h     |  1 h   |        |
-| &nbsp;&nbsp;&#8594; Git clone (Windows)       |        |        |         |        | 50 min |
-| &nbsp;&nbsp;&#8594; IntelliJ (install/learn)  |        |        |         |        | 40 min |
-| &nbsp;&nbsp;&#8594; Follow setup instructions |        |        |         |        |        |
-| &nbsp;&nbsp;&#8594; **AddDependency**         |        |        |         |        |        |
-| &nbsp;&nbsp;&#8594; **AddDependency**         |        |        |         |        |        |
-| analyzing code/output                         |        |        | 7 h     |  5 h   |        |
-| writing documentation                         |        |        | 5 h     |  1 h   | 20 min |
-| writing code                                  |        |        | 5 h     |  9 h   |        |
-| running code                                  |        |        | 3 h     |  1 h   |        |
-| Incident                                      |        |        |         |        |        |
+|                                                     | Olivia | Laasya | Gabriel | Daniel  |   Sofia   |
+| --------------------------------------------------- | :----: | :----: | :-----: | :-----: | :-------: |
+| plenary discussions/meetings                        |        |        | 2 hours | 2 hours |  1 hour   |
+| discussions within parts of the group               |        |        | 30 min  | 1 hour  |           |
+| reading documentation                               |        |        | 7 hours | 2 hours | 4 ½ hours |
+| configuration and setup                             |        |        | 1 hours | 1 hour  | 2 ½ hours |
+| &nbsp;&nbsp;&#8594; Git clone (Windows)             |        |        |         |         |  50 min   |
+| &nbsp;&nbsp;&#8594; IntelliJ (install/learn)        |        |        |         |         |  40 min   |
+| &nbsp;&nbsp;&#8594; Follow setup instructions       |        |        |         |         |  20 min   |
+| &nbsp;&nbsp;&#8594; Troubleshoot setup instructions |        |        |         |         |  35 min   |
+| analyzing code/output                               |        |        | 7 hours | 5 hours |  2 hours  |
+| writing documentation                               |        |        | 5 hours | 1 hour  |  7 hours  |
+| writing code                                        |        |        | 5 hours | 9 hours | 2 ½ hours |
+| running code                                        |        |        | 3 hours | 1 hour  |  1 hour   |
+| Incident                                            |        |        |         |         |           |
 
 For setting up tools and libraries (step 4), enumerate all dependencies
 you took care of and where you spent your time, if that time exceeds
