@@ -266,12 +266,10 @@ Optional (point 3): trace tests to requirements.
 
 This is the comparison to what was in the main branch before we did our stuff
 
-Optional (point 4): the patch is clean.
 ```bash
 git diff main dd2480/report ':(exclude)report.md'
 ```
 
-Optional (point 5): considered for acceptance (passes all automated checks).
 This is the comparison the what is in the main branch now\
 [github.com/JabRef/jabref/compare/main...group-17-dd2480:Assignment-4-Issue-resolution-refactoring-:main](https://github.com/JabRef/jabref/compare/main...group-17-dd2480:Assignment-4-Issue-resolution-refactoring-:main)
 
@@ -282,11 +280,6 @@ refactoring).
 
 ## UML class diagram and its description
 
-### Key changes/classes affected
-
-Optional (point 1): Architectural overview.
-
-Optional (point 2): relation to design pattern(s).
 
 ## Overall experience
 
@@ -294,6 +287,4 @@ What are your main take-aways from this project? What did you learn?
 
 How did you grow as a team, using the Essence standard to evaluate yourself?
 
-Optional (point 6): How would you put your work in context with best software engineering practice?
 
-Optional (point 7): Is there something special you want to mention here?
