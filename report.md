@@ -283,8 +283,11 @@ refactoring).
 
 ## Overall experience
 
-What are your main take-aways from this project? What did you learn?
+What are your main take-aways from this project? What did you learn?\
+Our main take-aways from this project is that even if a function is already implemented, it can still be difficult and time consuming to extend the function to accept inputs from other places, in this case another field in the GUI.
+We have learnt more about working on an open source project. The importance of reading up on the project standards and following them, even things like the IDE you use to code might need to be changed to do the work in a way that is up to the project requirements for changes.
 
-How did you grow as a team, using the Essence standard to evaluate yourself?
-
-
+How did you grow as a team, using the Essence standard to evaluate yourself?\
+According to the Essence standard, our team is currently in the "Performing" state of the Team. We have established a shared and documented way of working that is understood and consistently followed by all group members. We had some difficulties with the onboarding of the project, but everything after has worked well within the group. We divided up the work and the group members have all either done their parts on time or have communicated in a timely fashion if the work would not be done for the internal deadlines. We've used GitHub issues and assigning ourselves to the different issues, preventing wasted work by several people working on the same things.
+The next state is "Adjourned" which is for when the project is over, so there are no obstacles to reach the next state.
+Our teamwork and collaboration has improved during the course. There is more room for improvement in handling merge conflicts and issues.
