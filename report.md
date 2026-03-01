@@ -264,13 +264,16 @@ Optional (point 3): trace tests to requirements.
 
 ### Patch
 
-(copy your changes or the add git command to show them)
-
-git diff ...
+This is the comparison to what was in the main branch before we did our stuff
 
 Optional (point 4): the patch is clean.
+```bash
+git diff main dd2480/report ':(exclude)report.md'
+```
 
 Optional (point 5): considered for acceptance (passes all automated checks).
+This is the comparison the what is in the main branch now\
+[github.com/JabRef/jabref/compare/main...group-17-dd2480:Assignment-4-Issue-resolution-refactoring-:main](https://github.com/JabRef/jabref/compare/main...group-17-dd2480:Assignment-4-Issue-resolution-refactoring-:main)
 
 ## Test results
 
