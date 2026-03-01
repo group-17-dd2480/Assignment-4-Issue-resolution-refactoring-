@@ -28,20 +28,20 @@ Another thing is that JabRef has very particular requirements for [which IDE to 
 For each team member, how much time was spent in
 
 |                                               | Olivia | Laasya | Gabriel | Daniel | Sofia  |
-| --------------------------------------------- | :----: | :----: | :-----: | :----: | :----: |
-| plenary discussions/meetings                  |        |        | 2 h     |        |        |
-| discussions within parts of the group         |        |        | 0.5 h   |        |        |
-| reading documentation                         |        |        | 7 h     |        |        |
-| configuration and setup                       |        |        | 1 h     |        |        |
+| --------------------------------------------- | :----: | :----: | :-----: |:------:| :----: |
+| plenary discussions/meetings                  |        |        | 2 h     |  2 h   |        |
+| discussions within parts of the group         |        |        | 0.5 h   |  1 h   |        |
+| reading documentation                         |        |        | 7 h     |  2 h   |        |
+| configuration and setup                       |        |        | 1 h     |  1 h   |        |
 | &nbsp;&nbsp;&#8594; Git clone (Windows)       |        |        |         |        | 50 min |
 | &nbsp;&nbsp;&#8594; IntelliJ (install/learn)  |        |        |         |        | 40 min |
 | &nbsp;&nbsp;&#8594; Follow setup instructions |        |        |         |        |        |
 | &nbsp;&nbsp;&#8594; **AddDependency**         |        |        |         |        |        |
 | &nbsp;&nbsp;&#8594; **AddDependency**         |        |        |         |        |        |
-| analyzing code/output                         |        |        | 7 h     |        |        |
-| writing documentation                         |        |        | 5 h     |        | 20 min |
-| writing code                                  |        |        | 5 h     |        |        |
-| running code                                  |        |        | 3 h     |        |        |
+| analyzing code/output                         |        |        | 7 h     |  5 h   |        |
+| writing documentation                         |        |        | 5 h     |  1 h   | 20 min |
+| writing code                                  |        |        | 5 h     |  9 h   |        |
+| running code                                  |        |        | 3 h     |  1 h   |        |
 | Incident                                      |        |        |         |        |        |
 
 For setting up tools and libraries (step 4), enumerate all dependencies
@@ -148,7 +148,7 @@ Test: check the cleanup UI strings changed and a cleanup run updates both journa
 - `abbreviateJournalTitleAndBookTitleInOneRun()` in `AbbreviateJournalCleanupTest.java`.
 - `checkEntryDoesNotComplainAboutAbbreviatedBooktitleWhenAbbreviationIsAllowed()` in `AbbreviateCheckerTest.java`.
 
-**[req 8](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Incomplete
+**[req 8](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Done
 - JournalAbbreviationPreferences and ConferenceAbbreviationPreferences have a list of abbreviations in common, List<Abbreviations>, since Abbreviation object is the same for conference and journal.
 - Introduce AbbreviationPreferences and new ConferenceAbbreviationPreferences (inheriting from AbbreviationPreferences). 
 - The JournalAbbreviationPreferences need also inherit from AbbreviationPreferences.
@@ -156,13 +156,13 @@ Test: check the cleanup UI strings changed and a cleanup run updates both journa
 **Test**
 Test (light): create both prefs and confirm they accept the same list type, even if it is mostly design.
 
-**[req 9](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Incomplete
+**[req 9](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Done
 - externalLists should be in AbbreviationPreferences, because both conference abbreviation and the journal abbreviations make use of the list.
 
 **Test**
 Test: set `externalLists` in base prefs and see both journal and conference loaders pick them up.
 
-**[req 10](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Incomplete
+**[req 10](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Done
 - useFjournalField is very specific to journals, thus it has to be in JournalAbbreviationPreferences
 
 **Test**
@@ -179,14 +179,14 @@ classDiagram
 
 ```
 
-**[req 11](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Incomplete
+**[req 11](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Done
 - rename externalJournalLists to externalLists (in JournalAbbreviationPreferences) and move up the class hierarchy to AbbreviationPreferences
 - rename the respective setter, getter and constructor paramtere - and move up the class hierarchy to AbbreviationPreferences
 
 **Test**
 Not unit-testable, just make sure rename compiles and base prefs expose `externalLists`.
 
-**[req 12](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Incomplete
+**[req 12](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Done
 - JournalAbbreviationRepository has no journal specifics
 - rename JournalAbbreviationRepository to AbbreviationRepository
 
