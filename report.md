@@ -28,18 +28,18 @@ For each team member, how much time was spent in
 
 |                                                     | Olivia | Laasya | Gabriel | Daniel  |   Sofia   |
 | --------------------------------------------------- | :----: | :----: | :-----: | :-----: | :-------: |
-| plenary discussions/meetings                        | 2 hours|        | 2 hours | 2 hours |  1 hour   |
-| discussions within parts of the group               | 1 hour |        | 30 min  | 1 hour  |           |
-| reading documentation                               | 6 hours|        | 7 hours | 2 hours | 4 ½ hours |
-| configuration and setup                             | 3 hours|        | 1 hours | 1 hour  | 2 ½ hours |
+| plenary discussions/meetings                        | 2 hours| 2 hours| 2 hours | 2 hours |  1 hour   |
+| discussions within parts of the group               | 1 hour | 30 min | 30 min  | 1 hour  |           |
+| reading documentation                               | 6 hours| 5 hours| 7 hours | 2 hours | 4 ½ hours |
+| configuration and setup                             | 3 hours| 2 hours| 1 hours | 1 hour  | 2 ½ hours |
 | &nbsp;&nbsp;&#8594; Git clone (Windows)             |        |        |         |         |  50 min   |
 | &nbsp;&nbsp;&#8594; IntelliJ (install/learn)        |        |        |         |         |  40 min   |
 | &nbsp;&nbsp;&#8594; Follow setup instructions       |        |        |         |         |  20 min   |
 | &nbsp;&nbsp;&#8594; Troubleshoot setup instructions |        |        |         |         |  35 min   |
-| analyzing code/output                               | 3 hours|        | 7 hours | 5 hours |  2 hours  |
-| writing documentation                               | 2 hours|        | 5 hours | 1 hour  |  7 hours  |
-| writing code                                        | 4 hours|        | 5 hours | 9 hours | 2 ½ hours |
-| running code                                        | 2 hours|        | 3 hours | 1 hour  |  1 hour   |
+| analyzing code/output                               | 3 hours| 4 hours| 7 hours | 5 hours |  2 hours  |
+| writing documentation                               | 2 hours| 1 hour | 5 hours | 1 hour  |  7 hours  |
+| writing code                                        | 4 hours| 5 hours| 5 hours | 9 hours | 2 ½ hours |
+| running code                                        | 2 hours| 1 ½ hours| 3 hours | 1 hour  |  1 hour   |
 | Incident                                            |config 2|        |         |         |           |
 
 For setting up tools and libraries (step 4), enumerate all dependencies
@@ -127,7 +127,7 @@ Assert `booktitle` abbreviations are handled by the conference abbreviation repo
 **Test**
 More of a chore, not really testable in classic sense.
 
-**[req 4](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Partially Implemented
+**[req 4](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Done
 
 - create a ConferenceAbbreviationRepository based on JournalAbbreviationRepository - Done
 - Added ConferenceAbbreviationRepositoryTest - Done
@@ -145,7 +145,7 @@ Verifiable by running the tests and making sure they fail before implementation 
 
 - covered in `abbreviateBookTitleField()`, `unabbreviateBookTitleSuccessful()`, `abbreviateJournalTitleAndBookTitleInOneRun()`, `checkEntryDoesNotComplainAboutAbbreviatedBooktitleWhenAbbreviationIsAllowed()`.
 
-**[req 6](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Partially Implemented
+**[req 6](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Done
 
 - the csv file should be imported into JabRef similar to journal abbreviations
 - refactor JournalAbbreviationConverter.groovy to be AbbreviationConverter.groovy
@@ -216,7 +216,7 @@ Not unit-testable, just make sure rename compiles and base prefs expose `externa
 **Test**
 Not unit-testable, class rename is checked by compile and review.
 
-**[req 13](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Incomplete
+**[req 13](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Done
 
 - JournalAbbreviationLoader has some journal specifics
 - The journal specifics are journal-list.mv and /journals/journal-list.mv
@@ -240,7 +240,7 @@ classDiagram
 - Use AbbreviationPreferences works since fjournal is not needed here.
 - Using the variable mvName, the variable tempJournaList and the path to JournalAbbreviationRepository.class.getResourceAsStream("/journals/journal-list.mv") can be dynaically made. The tempDir can be named "jabref-abbreviation-loading" (instead of jabref-journal)
 
-**[req 14](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Incomplete
+**[req 14](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Done
 
 constructors:
 
