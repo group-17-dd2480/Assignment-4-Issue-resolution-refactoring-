@@ -22,7 +22,6 @@ Another thing is that JabRef has very particular requirements for [which IDE to 
 > We highly encourage using IntelliJ IDEA, as it provides the most reliable experience for this project. Other IDEs may have compatibility issues, particularly Visual Studio Code.
 > We do not recommend using VS Code, because it does not offer all important features essential for JabRef development.
 
-
 ## Effort spent
 
 For each team member, how much time was spent in
@@ -74,6 +73,7 @@ The following requirements are based on the issue description. Note that tests a
 **[req 1](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Done
 
 Before shortening:
+
 ```bibtex
 @inproceedings{DBLP:conf/bpm/Rinderle-MaM21,
   author    = {Stefanie Rinderle{-}Ma and
@@ -87,7 +87,9 @@ Before shortening:
   year      = {2021}
 }
 ```
+
 After shortening:
+
 ```bibtex
 @inproceedings{DBLP:conf/bpm/Rinderle-MaM21,
   author    = {Stefanie Rinderle{-}Ma and
@@ -101,15 +103,18 @@ After shortening:
   year      = {2021}
 }
 ```
+
 There will be a CSV file:
 International Conference on Business Process Management,BPM
 
 **Test**
 Test by using the input above and asserting that the output is correct.
+
 - `abbreviateBookTitleField()` in `AbbreviateBookTitleField()`
 - `unabbreviateBookTitleSuccessful()` in `UnabbreviateJournalCleanupTest.java`
 
 **[req 2](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Done
+
 - conferences use booktitle instead of journaltitle
 - they have different abbreviations and reside in different fields
 
@@ -117,12 +122,14 @@ Test by using the input above and asserting that the output is correct.
 Assert `booktitle` abbreviations are handled by the conference abbreviation repo while `journaltitle` uses the journal repo.
 
 **[req 3](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Done
+
 - a csv has to be filled with example conferences
 
 **Test**
 More of a chore, not really testable in classic sense.
 
 **[req 4](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Partially Implemented
+
 - create a ConferenceAbbreviationRepository based on JournalAbbreviationRepository - Done
 - Added ConferenceAbbreviationRepositoryTest - Done
 - rename journal-lists.mv to abbreviations.mv in both groovy and java code
@@ -131,21 +138,24 @@ More of a chore, not really testable in classic sense.
 Loader can assert that the loader reads the expected MV resource name.
 
 **[req 5](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Done
+
 - write tests based on custom abbreviations
 
 **Test**
 Verifiable by running the tests and making sure they fail before implementation and work after implementation.
+
 - covered in `abbreviateBookTitleField()`, `unabbreviateBookTitleSuccessful()`, `abbreviateJournalTitleAndBookTitleInOneRun()`, `checkEntryDoesNotComplainAboutAbbreviatedBooktitleWhenAbbreviationIsAllowed()`.
 
 **[req 6](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Partially Implemented
+
 - the csv file should be imported into JabRef similar to journal abbreviations
 - refactor JournalAbbreviationConverter.groovy to be AbbreviationConverter.groovy
 
 **Test**
 Test idea: load a tiny conference CSV and check abbreviations resolve, converter rename is just review.
 
-
 **[req 7](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Done
+
 - the UI should offer abbreviating
 - rename "Abbreviate journal names" to "Abbreviate journals and book titles"
 - rename "Unabbreviate journal names" to "Expand journals and book titles"
@@ -153,24 +163,28 @@ Test idea: load a tiny conference CSV and check abbreviations resolve, converter
 
 **Test**
 Test: check the cleanup UI strings changed and a cleanup run updates both journal and booktitle in one go.
+
 - `abbreviateJournalTitleAndBookTitleInOneRun()` in `AbbreviateJournalCleanupTest.java`.
 - `checkEntryDoesNotComplainAboutAbbreviatedBooktitleWhenAbbreviationIsAllowed()` in `AbbreviateCheckerTest.java`.
 
 **[req 8](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Done
-- JournalAbbreviationPreferences and ConferenceAbbreviationPreferences have a list of abbreviations in common, List<Abbreviations>, since Abbreviation object is the same for conference and journal.
-- Introduce AbbreviationPreferences and new ConferenceAbbreviationPreferences (inheriting from AbbreviationPreferences). 
+
+- JournalAbbreviationPreferences and ConferenceAbbreviationPreferences have a list of abbreviations in common, List\<Abbreviations\>, since Abbreviation object is the same for conference and journal.
+- Introduce AbbreviationPreferences and new ConferenceAbbreviationPreferences (inheriting from AbbreviationPreferences).
 - The JournalAbbreviationPreferences need also inherit from AbbreviationPreferences.
 
 **Test**
 Test (light): create both prefs and confirm they accept the same list type, even if it is mostly design.
 
 **[req 9](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Done
+
 - externalLists should be in AbbreviationPreferences, because both conference abbreviation and the journal abbreviations make use of the list.
 
 **Test**
 Test: set `externalLists` in base prefs and see both journal and conference loaders pick them up.
 
 **[req 10](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Done
+
 - useFjournalField is very specific to journals, thus it has to be in JournalAbbreviationPreferences
 
 **Test**
@@ -188,6 +202,7 @@ classDiagram
 ```
 
 **[req 11](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Done
+
 - rename externalJournalLists to externalLists (in JournalAbbreviationPreferences) and move up the class hierarchy to AbbreviationPreferences
 - rename the respective setter, getter and constructor paramtere - and move up the class hierarchy to AbbreviationPreferences
 
@@ -195,6 +210,7 @@ classDiagram
 Not unit-testable, just make sure rename compiles and base prefs expose `externalLists`.
 
 **[req 12](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Done
+
 - JournalAbbreviationRepository has no journal specifics
 - rename JournalAbbreviationRepository to AbbreviationRepository
 
@@ -202,6 +218,7 @@ Not unit-testable, just make sure rename compiles and base prefs expose `externa
 Not unit-testable, class rename is checked by compile and review.
 
 **[req 13](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Incomplete
+
 - JournalAbbreviationLoader has some journal specifics
 - The journal specifics are journal-list.mv and /journals/journal-list.mv
 - Hide these internals in a class hierarchy
@@ -216,16 +233,18 @@ classDiagram
     <<Abstract>> AbbreviationLoader
 
     AbbreviationLoader: +readListFromFile
-	AbbreviationLoader: AbbreviationLoader(String mvName)
-	AbbreviationLoader: +AbbreviationRepository loadloadRepository(AbbreviationPreferences)
+  AbbreviationLoader: AbbreviationLoader(String mvName)
+  AbbreviationLoader: +AbbreviationRepository loadloadRepository(AbbreviationPreferences)
     AbbreviationLoader: -mvName
 ```
+
 - Use AbbreviationPreferences works since fjournal is not needed here.
 - Using the variable mvName, the variable tempJournaList and the path to JournalAbbreviationRepository.class.getResourceAsStream("/journals/journal-list.mv") can be dynaically made. The tempDir can be named "jabref-abbreviation-loading" (instead of jabref-journal)
 
 **[req 14](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749376)** - Incomplete
 
 constructors:
+
 - public JournalAbbreviationLoader(super("journal-list.mv"))
 - public ConferenceAbbreviationLoader(super("conference-list.mv"))
 
@@ -233,11 +252,11 @@ constructors:
 Constructor signatures are structural, so compilation is the check.
 
 **[req 15](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749399)** - Incomplete
+
 - heuristics
 
 **Test**
 Can't test heuristics until the rule is written down.
-
 
 Optional (point 3): trace tests to requirements.
 
