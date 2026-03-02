@@ -145,7 +145,7 @@ Verifiable by running the tests and making sure they fail before implementation 
 
 - covered in `abbreviateBookTitleField()`, `unabbreviateBookTitleSuccessful()`, `abbreviateJournalTitleAndBookTitleInOneRun()`, `checkEntryDoesNotComplainAboutAbbreviatedBooktitleWhenAbbreviationIsAllowed()`.
 
-**[req 6](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Done
+**[req 6](https://github.com/JabRef/jabref/issues/12728#issuecomment-2720749311)** - Partially implemented
 
 - the csv file should be imported into JabRef similar to journal abbreviations
 - refactor JournalAbbreviationConverter.groovy to be AbbreviationConverter.groovy
